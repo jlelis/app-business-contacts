@@ -1,4 +1,5 @@
 @extends('templates.app')
+@section('title','Lista Estados')
 @section('content')
 
     <div class="page-header py-1">

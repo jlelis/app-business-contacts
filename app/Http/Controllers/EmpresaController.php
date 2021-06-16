@@ -15,9 +15,8 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $estados = Estado::all();
         $empresas = Empresa::with('estado')->get();
-//        dd($empresas);
+
         return view('admin.empresa.index', compact('empresas'));
     }
 
@@ -64,10 +63,11 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
+        $title = 'Editar Empresa';
         $empresa = Empresa::findOrfail($id);
 //        dd($empresa);
         $estados = Estado::all();
-        return view('admin.empresa.edit', compact('empresa', 'estados'));
+        return view('admin.empresa.edit', compact('title', 'empresa', 'estados'));
     }
 
     /**
@@ -80,7 +80,7 @@ class EmpresaController extends Controller
     public function update(Request $request, $id)
     {
         $empresa = Empresa::findOrFail($id);
-//        dd($request->all());
+
         $empresa->update($request->all());
         return redirect()->route('empresas.index');
     }

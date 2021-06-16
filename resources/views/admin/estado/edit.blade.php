@@ -1,4 +1,5 @@
 @extends('templates.app')
+@section('title','Edit Estados')
 @section('content')
 
     <div class="page-header">

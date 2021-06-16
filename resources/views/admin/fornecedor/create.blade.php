@@ -1,4 +1,5 @@
 @extends('templates.app')
+@section('title','Cadastro Fornecedor')
 @section('content')
 
     <div class="page-header py-1">
@@ -12,7 +13,8 @@
                 Nome:
                 <input class="form-control" type="text" name="nome" required autofocus>
             </div>
-
+        </div>
+        <div class="row">
             <div class="col-md-4">
                 RG:
                 <input class="form-control" type="text" name="rg" id="rg">
@@ -20,13 +22,15 @@
 
             <div class="col-md-4">
                 CNPJ/CPF:
-                <input class="form-control" type="text" name="cpf_cnpj" required id="cpf_cnpj">
+                <input class="form-control" type="text" name="cnpj_cpf" required id="cnpj_cpf">
             </div>
 
             <div class="col-md-4">
                 Dt. de Nascimento:
                 <input class="form-control" type="date" name="data_nascimento">
             </div>
+        </div>
+        <div class="row">
             <div class="col-md-4">
                 Dt. de Cadastro:
                 <input class="form-control" type="date" name="data_cadastro" required>
@@ -34,14 +38,14 @@
 
             <div class="col-md-4">
                 Celular:
-                <input class="form-control numero" type="text" name="numero" id="numero">
+                <input class="form-control numero" type="text" name="celular" id="numero">
             </div>
             <div class="col-md-4">
                 Telefone Fixo:
-                <input class="form-control numero" type="text" name="numero" id="numero">
+                <input class="form-control numero" type="text" name="fixo">
             </div>
-
-
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 Empresa:
                 <select name="empresa_id" class="form-select" required>
@@ -66,9 +70,8 @@
 
                 </select>
             </div>
-
-
         </div>
+
         <hr>
         <div class="col-md-4">
 

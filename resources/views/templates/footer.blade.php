@@ -1,6 +1,6 @@
 <footer class="pt-5 d-flex justify-content-between">
 
-    <span>Copyright © 2020-{{date('Y')}} <a href="#">Jlelis</a></span>
+    <span>Copyright © 2020-{{date('Y')}} <a href="https://github.com/jlelis" target="_blank">Jlelis</a></span>
     <ul class="nav m-0">
         <li class="nav-item">
             <a class="nav-link text-secondary" aria-current="page" href="#">Privacy Policy</a>

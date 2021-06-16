@@ -1,4 +1,5 @@
 @extends('templates.app')
+@section('title','Lista Fornecedores')
 @section('content')
 
     <div class="page-header py-1">
@@ -8,7 +9,7 @@
                 <h2>Fornecedores Parceiros</h2>
             </div>
             <div class="col-auto">
-                <a href="{{route('fornecedores.create')}}" class="btn btn-lg btn-success">Nova</a>
+                <a href="{{route('fornecedores.create')}}" class="btn btn-lg btn-success">Novo</a>
             </div>
         </div>
     </div>
@@ -40,7 +41,7 @@
                     <td>{{$fornecedor->rg}}</td>
                     <td>{{$fornecedor->cnpj_cpf}}</td>
                     <td>{{$fornecedor->estado->nome}}</td>
-                    <td>{{$fornecedor->empresa->nome}}</td>
+                    <td>{{$fornecedor->empresas->nome}}</td>
                     <td>
                         <a href="{{route('fornecedores.edit',$fornecedor->id)}}" class="btn btn-warning">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

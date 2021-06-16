@@ -1,8 +1,9 @@
 @extends('templates.app')
+@section('title','Cadastrar Estado')
 @section('content')
 
     <div class="page-header">
-        <h1>Cadastro de Estado</h1>
+        <h2>Cadastro de Estado</h2>
         <hr>
     </div>
 

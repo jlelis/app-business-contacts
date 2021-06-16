@@ -17,11 +17,8 @@ class FornecedorController extends Controller
     public function index()
     {
 
-        $estados = Estado::all();
-        $empresas = Empresa::all();
-        $fornecedores = Fornecedor::all();
-
-        return view('admin.fornecedor.index', compact('fornecedores', 'estados', 'empresas'));
+        $fornecedores = Fornecedor::with('estado', 'empresas')->get();
+        return view('admin.fornecedor.index', compact('fornecedores'));
     }
 
     /**
@@ -44,8 +41,10 @@ class FornecedorController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        dd($data);
+//        $data = $request->all();
+//        dd($data);
+        Fornecedor::create($request->all());
+        return redirect()->route('fornecedores.index');
     }
 
     /**
@@ -67,9 +66,10 @@ class FornecedorController extends Controller
      */
     public function edit($id)
     {
-        $estado = Estado::all();
+        $estados = Estado::all();
+        $empresas = Empresa::all();
         $fornecedor = Fornecedor::findOrFail($id);
-        return view('admin.forncedores.edit', compact('fornecedor', 'estado'));
+        return view('admin.fornecedor.edit', compact('fornecedor', 'estados','empresas'));
     }
 
     /**

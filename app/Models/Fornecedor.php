@@ -25,11 +25,11 @@ class Fornecedor extends Model
 
     public function estado()
     {
-        return $this->hasOne(Estado::class);
+        return $this->hasOne(Estado::class,'id','estado_id');
     }
 
-    public function empresa()
+    public function empresas()
     {
-        return $this->hasOne(Empresa::class);
+        return $this->belongsTo(Empresa::class,'empresa_id','id');
     }
 }
