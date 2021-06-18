@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FornecedorRequest;
 use App\Models\Empresa;
 use App\Models\Estado;
 use App\Models\Fornecedor;
@@ -39,11 +40,10 @@ class FornecedorController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FornecedorRequest $request)
     {
-//        $data = $request->all();
-//        dd($data);
-        Fornecedor::create($request->all());
+        $fornecedores = $request->all();
+        Fornecedor::create($fornecedores);
         return redirect()->route('fornecedores.index');
     }
 
@@ -69,7 +69,7 @@ class FornecedorController extends Controller
         $estados = Estado::all();
         $empresas = Empresa::all();
         $fornecedor = Fornecedor::findOrFail($id);
-        return view('admin.fornecedor.edit', compact('fornecedor', 'estados','empresas'));
+        return view('admin.fornecedor.edit', compact('fornecedor', 'estados', 'empresas'));
     }
 
     /**

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EstadoRequest;
 use App\Models\Estado;
-use Illuminate\Http\Request;
 
 class EstadoController extends Controller
 {
@@ -35,9 +35,10 @@ class EstadoController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EstadoRequest $request)
     {
-        Estado::create($request->all());
+        $estado = $request->all();
+        Estado::create($estado);
         return redirect()->route('estados.index')
             ->with('message', 'Cadastro criado com sucesso');
     }
@@ -74,10 +75,12 @@ class EstadoController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EstadoRequest $request, $id)
     {
+        $data = $request->all();
         $estados = Estado::find($id);
-        $estados->update($request->all());
+        $estados->update($data);
+
         return redirect()->route('estados.index')
             ->with('message', 'Cadastro alterado com sucesso');
     }
@@ -90,6 +93,10 @@ class EstadoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estados = Estado::find($id);
+        $estados->delete();
+
+        return redirect()->route('estados.index')
+            ->with('message', 'Cadastro excluido com sucesso');
     }
 }

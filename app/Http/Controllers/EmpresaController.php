@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmpresaRequest;
 use App\Models\Empresa;
 use App\Models\Estado;
-use Illuminate\Http\Request;
 
 class EmpresaController extends Controller
 {
@@ -37,9 +37,10 @@ class EmpresaController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpresaRequest $request)
     {
-        Empresa::create($request->all());
+        $empresa = $request->all();
+        Empresa::create($empresa);
         return redirect()->route('empresas.index')
             ->with('message', 'Cadastro criado com sucesso');
     }
@@ -77,7 +78,7 @@ class EmpresaController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmpresaRequest $request, $id)
     {
         $empresa = Empresa::findOrFail($id);
 

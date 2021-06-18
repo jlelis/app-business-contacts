@@ -16,14 +16,18 @@
                 <input type="text" name="nome" id="nome"
                        class="form-control @error('nome') is-invalid @enderror"
                        placeholder="Nome Estado" value="{{old('nome')}}" required>
-                {{$errors->has('nome') ? $errors->first() : ''}}
+                @error('nome')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
             <div class="col">
                 <label for="sigla">Sigla Estado:</label>
                 <input type="text" name="sigla" id="sigla" class="form-control @error('sigla') is-invalid @enderror"
                        placeholder="Sigla Estado" maxlength="5"
                        value="{{old('sigla')}}" required>
-                {{$errors->has('sigla') ? $errors->first() : ''}}
+                @error('sigla')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
 
             </div>
 
@@ -37,11 +41,11 @@
 
     </form>
 
-    @if($errors->any())
-        @foreach($errors->all() as $erro)
-            {{$erro}}
-            <br>
-        @endforeach
+    {{--    @if($errors->any())--}}
+    {{--        @foreach($errors->all() as $erro)--}}
+    {{--            {{$erro}}--}}
+    {{--            <br>--}}
+    {{--        @endforeach--}}
 
-    @endif
+    {{--    @endif--}}
 @endsection

@@ -11,38 +11,60 @@
         <div class="row">
             <div class="col-md-12">
                 Nome:
-                <input class="form-control" type="text" name="nome" required autofocus>
+                <input class="form-control" type="text" name="nome" value="{{old('nome')}}" required autofocus>
             </div>
+            @error('nome')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
         <div class="row">
             <div class="col-md-4">
                 RG:
-                <input class="form-control" type="text" name="rg" id="rg">
+                <input class="form-control" type="text" name="rg" id="rg" value="{{old('rg')}}">
+                @error('rg')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
-
             <div class="col-md-4">
+
                 CNPJ/CPF:
-                <input class="form-control" type="text" name="cnpj_cpf" required id="cnpj_cpf">
+                <input class="form-control" type="text" name="cnpj_cpf" id="cnpj_cpf" value="{{old('cnpj_cpf')}}">
+                @error('cnpj_cpf')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
 
             <div class="col-md-4">
                 Dt. de Nascimento:
-                <input class="form-control" type="date" name="data_nascimento">
+                <input class="form-control" type="date" name="data_nascimento" value="{{old('data_nascimento')}}">
             </div>
+            @error('data_nascimento')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
         <div class="row">
             <div class="col-md-4">
                 Dt. de Cadastro:
-                <input class="form-control" type="date" name="data_cadastro" required>
+                <input class="form-control" type="date" name="data_cadastro" value="{{old('data_cadastro')}} required">
+                @error('data_cadastro')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
 
             <div class="col-md-4">
                 Celular:
-                <input class="form-control numero" type="text" name="celular" id="numero">
+                <input class="form-control numero" type="text" name="celular" id="numero" required
+                       value="{{old('celular')}}">
+                @error('celular')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
             <div class="col-md-4">
                 Telefone Fixo:
-                <input class="form-control numero" type="text" name="fixo">
+                <input class="form-control numero" type="text" name="fixo" value="{{old('fixo')}}">
+                @error('telefone')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
         </div>
         <div class="row">

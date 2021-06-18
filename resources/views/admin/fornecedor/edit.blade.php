@@ -13,6 +13,9 @@
                 Nome:
                 <input class="form-control" type="text" name="nome" required autofocus>
             </div>
+            @error('nome')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
         <div class="row">
             <div class="col-md-4">
@@ -23,11 +26,17 @@
             <div class="col-md-4">
                 CNPJ/CPF:
                 <input class="form-control" type="text" name="cnpj_cpf" required id="cnpj_cpf">
+                @error('cnpj_cpf')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
 
             <div class="col-md-4">
                 Dt. de Nascimento:
                 <input class="form-control" type="date" name="data_nascimento">
+                @error('data_nascimento')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
         </div>
         <div class="row">

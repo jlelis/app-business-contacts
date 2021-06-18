@@ -11,14 +11,23 @@
         <div class="row">
             <div class="col-md-12">
                 <label class="form-label">Nome Empresa:</label>
-                <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome Empresa">
+                <input type="text" name="nome" id="nome" class="form-control @error('nome') is-invalid @enderror"
+                       placeholder="Nome Empresa" value="{{old('nome')}}">
+                @error('nome')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
 
         </div>
         <div class="row">
             <div class="col-md-6">
                 <label class="form-label">CNPJ Empresa:</label>
-                <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="CNPJ">
+                <input type="text" name="cnpj" id="cnpj" class="form-control @error('cnpj') is-invalid @enderror"
+                       placeholder="CNPJ" value="{{old('cnpj')}}">
+                @error('cnpj')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
+
             </div>
 
             <div class="col-md-6">
@@ -38,8 +47,12 @@
         <div class="row">
             <div class="col-md-12">
                 <label class="form-label">Descrição Empresa:</label>
-                <textarea name="descricao" id="descricao" cols="20" rows="2" class="form-control"
-                          placeholder="Descrição da Empresa"></textarea>
+                <textarea name="descricao" id="descricao" cols="20" rows="2"
+                          class="form-control  @error('descricao') is-invalid @enderror "
+                          placeholder="Descrição da Empresa">{{old('descricao')}}</textarea>
+                @error('descricao')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
         </div>
 

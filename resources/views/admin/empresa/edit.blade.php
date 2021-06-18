@@ -15,6 +15,9 @@
                 <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome Empresa"
                        value="{{$empresa->nome}}">
             </div>
+            @error('nome')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
 
         </div>
 
@@ -23,6 +26,9 @@
                 <label class="form-label">CNPJ Empresa:</label>
                 <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="CNPJ"
                        value="{{$empresa->cnpj}}">
+                @error('cnpj')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
             </div>
             <div class="col-md-6">
                 <label class="form-label">Estado Empresa:</label>
@@ -46,6 +52,9 @@
                 <textarea name="descricao" id="descricao" cols="20" rows="2" class="form-control"
                           placeholder="Descrição da Empresa">{{$empresa->descricao}}</textarea>
             </div>
+            @error('descricao')
+            <div class="alert alert-danger">{{$message}}</div>
+            @enderror
         </div>
 
         <div class="col-md-12">
